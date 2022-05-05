@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 01, 2022 at 09:30 AM
+-- Generation Time: May 05, 2022 at 04:39 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.28
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `college`
 --
+CREATE DATABASE IF NOT EXISTS `college` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `college`;
 
 -- --------------------------------------------------------
 
@@ -81,7 +83,8 @@ INSERT INTO `class_result` (`class_result_id`, `roll_no`, `course_code`, `subjec
 (51, '', '', '', '', '', '', '30-03-20'),
 (52, '', '', '', '', '', '', '30-03-20'),
 (53, '', '', '', '', '', '', '30-03-20'),
-(54, '', '', '', '', '', '', '30-03-20');
+(54, '', '', '', '', '', '', '30-03-20'),
+(55, '12011004', 'Btech', 'CSL-401', '4', '100', '87', '05-05-22');
 
 -- --------------------------------------------------------
 
@@ -124,11 +127,11 @@ CREATE TABLE `course_subjects` (
 --
 
 INSERT INTO `course_subjects` (`subject_code`, `subject_name`, `course_code`, `semester`, `credit_hours`) VALUES
-('CSL-401', 'Database Management Syatem', 'Btech', 4, 4),
-('CSL-402', 'Statistical and Numerical methods', 'Btech', 4, 4),
-('CSL-403', 'Operating System', 'Btech', 4, 3),
-('CSL-404', 'Object Oriented Programming', 'Btech', 4, 3),
-('CSL-405', 'Computer Network', 'Btech', 4, 4),
+('CSL-401', 'DatabaseManagementSystem', 'Btech', 4, 4),
+('CSL-402', 'StatisticalandNumericalmethods', 'Btech', 4, 4),
+('CSL-403', 'OperatingSystem', 'Btech', 4, 3),
+('CSL-404', 'ObjectOrientedProgramming', 'Btech', 4, 3),
+('CSL-405', 'ComputerNetwork', 'Btech', 4, 4),
 ('CSL-406', 'Practicum-2', 'Btech', 4, 3);
 
 -- --------------------------------------------------------
@@ -149,15 +152,6 @@ CREATE TABLE `examans` (
   `Ans5` mediumtext NOT NULL,
   `time` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `examans`
---
-
-INSERT INTO `examans` (`EAnsID`, `ExamID`, `Sname`, `roll_no`, `Ans1`, `Ans2`, `Ans3`, `Ans4`, `Ans5`, `time`) VALUES
-(10, 12, 'Mohd Aqib', '12011004', '1', '2', '3', '4', '5', '2022-05-01 05:04:32'),
-(11, 12, 'Mohd Aqib', '12011004', 'as', 'as', 'as', 'as', 'as', '2022-05-01 05:04:32'),
-(12, 12, 'Mohd Aqib', '12011004', 'nowd', 'd', 'd', 'd', 'd', '2022-05-01 05:04:57');
 
 -- --------------------------------------------------------
 
@@ -299,14 +293,9 @@ CREATE TABLE `student_attendance` (
 --
 
 INSERT INTO `student_attendance` (`attendance_id`, `course_code`, `subject_code`, `semester`, `student_id`, `attendance`, `attendance_date`) VALUES
-(1, 'MCS', 'DBMS', 2, 'MCS-S19-1', 1, '15-03-20'),
-(2, 'MCS', 'DBMS', 2, 'MCS-S19-1', 1, '15-03-20'),
-(3, 'MCS', 'DBMS', 2, 'MCS-S19-1', 1, '15-03-20'),
-(4, 'MCS', 'DBMS', 2, 'MCS-S19-1', 0, '15-03-20'),
-(5, 'MCS', 'DLD', 2, 'MCS-S19-1', 1, '15-03-20'),
-(6, 'MCS', 'OOP', 2, 'MCS-S19-1', 1, '15-03-20'),
-(7, 'MCS', 'SE', 2, 'MCS-S19-1', 0, '15-03-20'),
-(8, 'MCS', 'WEB', 2, 'MCS-S19-1', 1, '15-03-20');
+(9, 'Btech', 'CSL-401', 4, '12011004', 1, '05-05-22'),
+(10, 'Btech', 'CSL-401', 4, '12011004', 1, '05-05-22'),
+(11, 'Btech', 'CSL-401', 4, '12011004', 0, '05-05-22');
 
 -- --------------------------------------------------------
 
@@ -329,26 +318,12 @@ CREATE TABLE `student_courses` (
 --
 
 INSERT INTO `student_courses` (`student_course_id`, `course_code`, `semester`, `roll_no`, `subject_code`, `session`, `assign_date`) VALUES
-(1, 'MCS', 2, 'MCS-S19-1', 'OOP', 'S19', '15-03-20'),
-(2, 'MCS', 2, 'MCS-S19-1', 'DBMS', 'S19', '15-03-20'),
-(3, 'MCS', 2, 'MCS-S19-1', 'DLD', 'S19', '15-03-20'),
-(4, 'MCS', 2, 'MCS-S19-1', 'SE', 'S19', '15-03-20'),
-(5, 'MCS', 2, 'MCS-S19-1', 'WEB', 'S19', '15-03-20'),
-(7, 'CSL', 4, '12011004', 'DBMS', '', '26-04-22'),
-(8, '401', 4, '12011004', 'DBMS', '', '28-04-22'),
-(9, 'Btech', 4, '12011004', 'CSL-401', '', '01-05-22'),
-(10, 'Btech', 4, '12011004', 'CSL-401', '', '01-05-22'),
-(11, 'Btech', 4, '12011004', 'CSL-402', '', '01-05-22'),
-(12, 'Btech', 4, '12011004', 'CSL-403', '', '01-05-22'),
-(13, 'Btech', 4, '12011004', 'CSL-404', '', '01-05-22'),
-(14, 'Btech', 4, '12011004', 'CSL-405', '', '01-05-22'),
-(15, 'Btech', 4, '12011004', 'CSL-406', '', '01-05-22'),
-(16, 'Btech', 4, '12011005', 'CSL-401', '', '01-05-22'),
-(17, 'Btech', 4, '12011005', 'CSL-402', '', '01-05-22'),
-(18, 'Btech', 4, '12011005', 'CSL-403', '', '01-05-22'),
-(19, 'Btech', 4, '12011005', 'CSL-404', '', '01-05-22'),
-(20, 'Btech', 4, '12011005', 'CSL-405', '', '01-05-22'),
-(21, 'Btech', 4, '12011005', 'CSL-406', '', '01-05-22');
+(23, 'Btech', 4, '12011004', 'CSL-401', '', '05-05-22'),
+(24, 'Btech', 4, '12011004', 'CSL-402', '', '05-05-22'),
+(25, 'Btech', 4, '12011004', 'CSL-403', '', '05-05-22'),
+(26, 'Btech', 4, '12011004', 'CSL-404', '', '05-05-22'),
+(27, 'Btech', 4, '12011004', 'CSL-405', '', '05-05-22'),
+(28, 'Btech', 4, '12011004', 'CSL-406', '', '05-05-22');
 
 -- --------------------------------------------------------
 
@@ -371,7 +346,8 @@ CREATE TABLE `student_fee` (
 INSERT INTO `student_fee` (`fee_voucher`, `roll_no`, `amount`, `posting_date`, `status`) VALUES
 (3, '12011004', 1000, '2022-04-26 04:26:39', 'Paid'),
 (4, '12011004', 1000, '2022-04-26 04:27:01', 'Paid'),
-(5, '12011004', 100, '2022-04-26 16:46:22', 'Paid');
+(5, '12011004', 100, '2022-04-26 16:46:22', 'Paid'),
+(6, '12011004', 1200, '2022-05-05 14:16:46', 'Paid');
 
 -- --------------------------------------------------------
 
@@ -412,7 +388,7 @@ CREATE TABLE `student_info` (
 --
 
 INSERT INTO `student_info` (`roll_no`, `first_name`, `middle_name`, `last_name`, `father_name`, `email`, `mobile_no`, `course_code`, `session`, `profile_image`, `prospectus_issued`, `prospectus_amount`, `applicant_status`, `application_status`, `dob`, `other_phone`, `gender`, `permanent_address`, `current_address`, `place_of_birth`, `semester`, `total_marks`, `obtain_marks`, `state`, `admission_date`) VALUES
-('12011004', 'Mohd', '', 'Aqib', 'Rafat Ali', 'anmolali5811@gmail.com', '9369904676', 'Btech', 'S20', '', 'Yes', 'Yes', 'Admitted', 'Approved', '2003-11-11', '', 'Male', 'Rasdhan Kanpur dehat', 'Kanpur', 'Kanpur', 0, 0, 0, '', '2022-05-01 06:58:36'),
+('12011004', 'Mohd', '', 'Aqib', 'Rafat', 'anmolali5811@gmail.com', '9369904676', 'Btech', 'S20', '', 'Yes', 'Yes', 'Admitted', 'Approved', '2003-11-11', '', 'Male', 'Rasdhan', 'Kanpur', 'Kanpur', 4, 0, 0, '', '2022-05-05 13:12:42'),
 ('12011005', 'Akesh', '', 'Yadav', 'Father', 'akesh@gmail.com', '1234567890', 'Btech', 'S20', '', 'Yes', 'Yes', 'Admitted', 'Approved', '2002-01-01', '', 'Male', 'Harayana', 'Sonepat', 'Sonepat', 0, 0, 0, '', '2022-05-01 07:09:14');
 
 -- --------------------------------------------------------
@@ -433,10 +409,9 @@ CREATE TABLE `teacher_attendance` (
 --
 
 INSERT INTO `teacher_attendance` (`attendance_id`, `teacher_id`, `attendance`, `attendance_date`) VALUES
-(6, '3', 1, '26-04-22'),
-(7, '3', 1, '26-04-22'),
-(8, '7', 1, '01-05-22'),
-(9, '8', 1, '01-05-22');
+(10, '7', 1, '05-05-22'),
+(11, '7', 1, '05-05-22'),
+(12, '7', 0, '05-05-22');
 
 -- --------------------------------------------------------
 
@@ -459,8 +434,7 @@ CREATE TABLE `teacher_courses` (
 --
 
 INSERT INTO `teacher_courses` (`teacher_courses_id`, `course_code`, `semester`, `teacher_id`, `subject_code`, `assign_date`, `total_classes`) VALUES
-(8, 'Btech', 4, '7', 'Database', '01-05-22', 35),
-(9, 'Btech', 4, '8', 'Object', '01-05-22', 30);
+(14, 'Btech', 4, '7', 'CSL-401', '05-05-22', 40);
 
 -- --------------------------------------------------------
 
@@ -515,10 +489,7 @@ CREATE TABLE `teacher_salary_allowances` (
 --
 
 INSERT INTO `teacher_salary_allowances` (`teacher_id`, `basic_salary`, `medical_allowance`, `hr_allowance`, `scale`) VALUES
-(1, 40000, 5, 10, 15),
-(2, 55000, 7, 15, 18),
-(3, 43000, 5, 8, 14),
-(7, 50000, 5000, 6000, 0);
+(7, 50000, 5, 5, 3);
 
 -- --------------------------------------------------------
 
@@ -539,38 +510,8 @@ CREATE TABLE `teacher_salary_report` (
 --
 
 INSERT INTO `teacher_salary_report` (`salary_id`, `teacher_id`, `total_amount`, `status`, `paid_date`) VALUES
-(1, 1, 46000, 'Paid', '2020-03-27 11:28:57'),
-(2, 2, 67100, 'Paid', '2020-03-27 11:50:13'),
-(3, 3, 48590, 'Paid', '2020-03-27 11:55:58'),
-(4, 1, 46000, 'Paid', '2020-03-27 12:33:39'),
-(5, 3, 48590, 'Paid', '2020-03-28 08:26:59'),
-(6, 2, 67100, 'Paid', '2020-03-28 08:30:46'),
-(7, 2, 67100, 'Paid', '2020-03-28 08:32:06'),
-(8, 2, 67100, 'Paid', '2020-03-28 08:32:46'),
-(9, 2, 67100, 'Paid', '2020-03-28 08:33:59'),
-(10, 2, 67100, 'Paid', '2020-03-28 08:35:54'),
-(11, 2, 67100, 'Paid', '2020-03-28 08:38:17'),
-(12, 2, 67100, 'Paid', '2020-03-28 08:39:22'),
-(13, 2, 67100, 'Paid', '2020-03-28 08:40:44'),
-(14, 2, 67100, 'Paid', '2020-03-28 08:41:26'),
-(15, 2, 67100, 'Paid', '2020-03-28 08:42:25'),
-(16, 2, 67100, 'Paid', '2020-03-28 08:43:32'),
-(17, 2, 67100, 'Paid', '2020-03-28 08:44:03'),
-(18, 2, 67100, 'Paid', '2020-03-28 08:44:39'),
-(19, 2, 67100, 'Paid', '2020-03-28 08:45:09'),
-(20, 2, 67100, 'Paid', '2020-03-28 08:45:22'),
-(21, 2, 67100, 'Paid', '2020-03-28 08:45:36'),
-(22, 2, 67100, 'Paid', '2020-03-28 08:45:45'),
-(23, 2, 67100, 'Paid', '2020-03-28 08:45:59'),
-(24, 2, 67100, 'Paid', '2020-03-28 08:47:42'),
-(25, 2, 67100, 'Paid', '2020-03-28 08:48:11'),
-(26, 3, 48590, 'Paid', '2020-03-28 08:48:22'),
-(27, 3, 48590, 'Paid', '2020-03-28 08:48:40'),
-(28, 3, 48590, 'Paid', '2020-03-28 10:48:28'),
-(29, 3, 48590, 'Paid', '2020-03-28 10:49:47'),
-(30, 3, 48590, 'Paid', '2020-03-30 12:37:11'),
-(31, 7, 5550000, 'Paid', '2022-05-01 07:26:55'),
-(32, 7, 5550000, 'Paid', '2022-05-01 07:29:33');
+(34, 7, 55000, 'Paid', '2022-05-05 14:08:15'),
+(35, 7, 55000, 'Paid', '2022-05-05 14:09:25');
 
 -- --------------------------------------------------------
 
@@ -595,7 +536,8 @@ CREATE TABLE `time_table` (
 
 INSERT INTO `time_table` (`id`, `course_code`, `semester`, `timing_from`, `timing_to`, `day`, `subject_code`, `room_no`) VALUES
 (10, 'Btech', 4, '09:00', '10:00', '1', 'CSL-405', 23),
-(11, 'Btech', 4, '10:00', '11:00', '1', 'CSL-403', 24);
+(11, 'Btech', 4, '10:00', '11:00', '1', 'CSL-403', 24),
+(14, 'Btech', 4, '10:00', '11:00', '5', 'CSL-401', 24);
 
 -- --------------------------------------------------------
 
@@ -616,7 +558,6 @@ CREATE TABLE `video` (
 
 INSERT INTO `video` (`V_id`, `V_Title`, `V_Url`, `V_Remarks`) VALUES
 (1, 'demo really changed', '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/3CS-eQdcMLU\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 'demo video'),
-(4, 'demo2', '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/E4yVAoWKsTI\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 'movie'),
 (7, 'dsa', '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/9gn7q89mK3k\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 'dsa complte in 3 months');
 
 -- --------------------------------------------------------
@@ -785,7 +726,7 @@ ALTER TABLE `weekdays`
 -- AUTO_INCREMENT for table `class_result`
 --
 ALTER TABLE `class_result`
-  MODIFY `class_result_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `class_result_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT for table `examans`
@@ -803,7 +744,7 @@ ALTER TABLE `examdetails`
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `notes`
@@ -821,31 +762,31 @@ ALTER TABLE `sessions`
 -- AUTO_INCREMENT for table `student_attendance`
 --
 ALTER TABLE `student_attendance`
-  MODIFY `attendance_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `attendance_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `student_courses`
 --
 ALTER TABLE `student_courses`
-  MODIFY `student_course_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `student_course_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `student_fee`
 --
 ALTER TABLE `student_fee`
-  MODIFY `fee_voucher` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `fee_voucher` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `teacher_attendance`
 --
 ALTER TABLE `teacher_attendance`
-  MODIFY `attendance_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `attendance_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `teacher_courses`
 --
 ALTER TABLE `teacher_courses`
-  MODIFY `teacher_courses_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `teacher_courses_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `teacher_info`
@@ -857,13 +798,13 @@ ALTER TABLE `teacher_info`
 -- AUTO_INCREMENT for table `teacher_salary_report`
 --
 ALTER TABLE `teacher_salary_report`
-  MODIFY `salary_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `salary_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `time_table`
 --
 ALTER TABLE `time_table`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `video`
@@ -886,6 +827,809 @@ ALTER TABLE `weekdays`
 --
 ALTER TABLE `teacher_salary_report`
   ADD CONSTRAINT `teacher_salary_report_ibfk_1` FOREIGN KEY (`teacher_id`) REFERENCES `teacher_salary_allowances` (`teacher_id`);
+--
+-- Database: `onlclassroom`
+--
+CREATE DATABASE IF NOT EXISTS `onlclassroom` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `onlclassroom`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `Aid` varchar(35) NOT NULL,
+  `Apass` varchar(35) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`Aid`, `Apass`) VALUES
+('admin', 'admin'),
+('williams', 'williams');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `examans`
+--
+
+CREATE TABLE `examans` (
+  `EAnsID` int(50) NOT NULL,
+  `ExamID` int(10) NOT NULL,
+  `Senrl` varchar(50) NOT NULL,
+  `Sname` varchar(50) NOT NULL,
+  `Ans1` mediumtext NOT NULL,
+  `Ans2` mediumtext NOT NULL,
+  `Ans3` mediumtext NOT NULL,
+  `Ans4` mediumtext NOT NULL,
+  `Ans5` mediumtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `examans`
+--
+
+INSERT INTO `examans` (`EAnsID`, `ExamID`, `Senrl`, `Sname`, `Ans1`, `Ans2`, `Ans3`, `Ans4`, `Ans5`) VALUES
+(6, 12, '146891650', 'Robert Huffman', 'php script.php', 'Using special tags <?= and ?>', 'PHP 5 presents many additional OOP features', 'Final class means that this class cannot be extended and a final method cannot be overridden.', 'GD library'),
+(7, 13, '146891654', 'John Greenwood', 'using &copy; or &#169;', 'No, we can use hyperlinks on text and images both.', 'A style sheet is used to build a consistent, transportable, and well-designed style template. It describes the look and formatting of a document written in markup language.', 'Yes, by using <font color =\"color\"> </font> for the specific texts.', 'HTML elements with no content are called empty elements.'),
+(8, 14, '146891658', 'Francisca Ashley', 'Demo Answer 1', 'Demo Answer 2', 'Demo Answer 3', 'Demo Answer 4', 'Demo Answer 5'),
+(9, 12, '146891650', 'Robert Huffman', 'php script.php', 'using a special tag <?= and ?>', 'ver5 has many additional OOP features', 'meaning class cannot be extended and a final method cannot be overridden', 'GD library');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `examdetails`
+--
+
+CREATE TABLE `examdetails` (
+  `ExamID` int(50) NOT NULL,
+  `ExamName` varchar(50) NOT NULL,
+  `Q1` varchar(10000) NOT NULL,
+  `Q2` varchar(10000) NOT NULL,
+  `Q3` varchar(10000) NOT NULL,
+  `Q4` varchar(10000) NOT NULL,
+  `Q5` varchar(10000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `examdetails`
+--
+
+INSERT INTO `examdetails` (`ExamID`, `ExamName`, `Q1`, `Q2`, `Q3`, `Q4`, `Q5`) VALUES
+(12, 'PHP', 'How do you execute a PHP script from the command line?', 'How can we display the output directly to the browser?', 'What is the main difference between PHP 4 and PHP 5?', 'What is the meaning of a final class and a final method?', 'What is needed to be able to use image function?'),
+(13, 'HTML', 'How to insert a copyright symbol on a browser page?', 'Does a hyperlink only apply to text?', 'What is a style sheet?', 'Can you create a multi-colored text on a web page?', 'What are empty elements?'),
+(14, 'jQuery', 'Which built-in method returns the length of the string?', 'Which jQuery selector selects element with the given element id some-id?', 'Which jQuery method remove all or the specified class(es) from the set of matched elements?', 'Which jQuery method removes elements matching the specified selector from the set of matched elements?', 'Which jQuery method gets a set of elements containing all of the unique immediate children of each of the matched set of elements?'),
+(15, 'Demo Assessment', 'Q1 Demo', 'Q2 Demo', 'Q3 Demo', 'Q4 Demo', 'Q5 Demo');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `facutlytable`
+--
+
+CREATE TABLE `facutlytable` (
+  `FID` int(10) NOT NULL,
+  `FName` varchar(50) NOT NULL,
+  `FaName` varchar(30) NOT NULL,
+  `Addrs` text NOT NULL,
+  `Gender` varchar(6) NOT NULL,
+  `JDate` date NOT NULL,
+  `City` varchar(10) NOT NULL,
+  `Pass` varchar(10) NOT NULL,
+  `PhNo` bigint(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `facutlytable`
+--
+
+INSERT INTO `facutlytable` (`FID`, `FName`, `FaName`, `Addrs`, `Gender`, `JDate`, `City`, `Pass`, `PhNo`) VALUES
+(101, 'Robert Meadows', 'Stephen M Grower', '4021  Bell Street', 'Male', '2010-09-23', 'New York', '101010', 7454545850),
+(102, 'Floyd Foster', 'James R Foster', '4839  Broad Street', 'Male', '2010-08-11', 'Birmingham', '101010', 7014569696),
+(103, 'Heather Truong', 'Robert Truong', '1508  Davis Street', 'Female', '2015-12-03', 'Augusta', '101010', 7354541000),
+(104, 'Leona Bledsoe', 'Mackie Bledsoe', '45  Carolyns Circle', 'Female', '2017-07-19', 'Pixley', '101010', 7025554700),
+(106, 'Rebecca Burkett', 'Spader Burket', '1109  Clifford Street', 'Female', '2019-01-23', 'Oakland', '101010', 7014786969),
+(107, 'Nicholas Kiley', 'Dwayne Kiley', '4276 McDowell Street', 'Male', '2020-12-02', 'Nashville', '101010', 7023698503),
+(108, 'William G Nicolas', 'Johnny G Nicolas', '3875 Timbercrest Road', 'Male', '2021-05-11', 'Juneau', '101010', 7413693330);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `guest`
+--
+
+CREATE TABLE `guest` (
+  `GuEid` varchar(35) NOT NULL,
+  `Gname` varchar(35) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `guest`
+--
+
+INSERT INTO `guest` (`GuEid`, `Gname`) VALUES
+('guestd@gmail.com', 'Demo Name Guest'),
+('avilakr@gmail.com', 'Karla Avila'),
+('patrickla@gmail.com', 'Patrick M Larios\n'),
+('shannonrgmu@gmail.com', 'Shannon R Hang\n');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `query`
+--
+
+CREATE TABLE `query` (
+  `Query` text NOT NULL,
+  `Ans` text NOT NULL,
+  `Eid` varchar(35) NOT NULL,
+  `Qid` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `query`
+--
+
+INSERT INTO `query` (`Query`, `Ans`, `Eid`, `Qid`) VALUES
+('							Which built-in method returns the characters in a string beginning at the specified location? ', '													substr()', 'robert@gmail.com', 15),
+('							How can we automatically escape incoming data? ', '												We have to enable the Magic quotes entry in the configuration file of PHP.	', 'greenwood@gmail.com', 16),
+('							What does the function get_magic_quotes_gpc() means? ', '												The function get_magic_quotes_gpc() tells us whether the magic quotes is switched on or no.	', 'greenwood@gmail.com', 17),
+('							What does accessing a class via :: means? ', '									:: is used to access static methods that do not require object initialization.				', 'kathy@gmail.com', 18),
+('							What is jQuery UI? ', '									A set of user interface interactions, effects, widgets, and themes built on top of the jQuery JavaScript Library.				', 'robert@gmail.com', 20),
+('demo test for guest query', '', 'guestd@gmail.com', 21);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `result`
+--
+
+CREATE TABLE `result` (
+  `RsID` bigint(20) NOT NULL,
+  `Eno` varchar(20) NOT NULL,
+  `Ex_ID` int(10) NOT NULL,
+  `Marks` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `result`
+--
+
+INSERT INTO `result` (`RsID`, `Eno`, `Ex_ID`, `Marks`) VALUES
+(2384, '146891650', 12, 'Pass'),
+(2385, '146891654', 13, 'Pass'),
+(2386, '146891650', 12, 'Pass'),
+(2387, '146891658', 14, 'Fail');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `studenttable`
+--
+
+CREATE TABLE `studenttable` (
+  `Eno` bigint(20) NOT NULL,
+  `FName` varchar(30) NOT NULL,
+  `LName` varchar(30) NOT NULL,
+  `FaName` varchar(30) NOT NULL,
+  `Addrs` text NOT NULL,
+  `Gender` varchar(6) NOT NULL,
+  `Course` varchar(20) NOT NULL,
+  `DOB` date NOT NULL,
+  `PhNo` bigint(10) NOT NULL,
+  `Pass` varchar(20) NOT NULL,
+  `Eid` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `studenttable`
+--
+
+INSERT INTO `studenttable` (`Eno`, `FName`, `LName`, `FaName`, `Addrs`, `Gender`, `Course`, `DOB`, `PhNo`, `Pass`, `Eid`) VALUES
+(146891650, 'Robert', 'Huffman', 'Jason Huffman', '220  Cardinal Lane', 'Male', 'BIT', '1996-07-16', 7010101250, 'password', 'robert@gmail.com'),
+(146891651, 'Martin', 'Huynh', 'Anthony Huynh', '3936  Brighton Circle Road', 'Male', 'MIT', '1996-08-05', 7023658960, 'password', 'martin@gmail.com'),
+(146891652, 'June', 'Barker', 'Peter Barker', '4871  Romano Street', 'Female', 'BIT', '1996-02-10', 7410000010, 'password', 'barker@gmail.com'),
+(146891654, 'John', 'Greenwood', 'Thomas M Greenwood', '1495  Wilmar Farm Road', 'Male', 'BIT', '1996-07-12', 7013696365, 'password', 'greenwood@gmail.com'),
+(146891655, 'Kathy', 'Dales', 'Stewart Dales', '1318  Hilltop Street', 'Female', 'MIT', '1993-11-03', 7014563320, 'password', 'kathy@gmail.com'),
+(146891656, 'Robb', 'Caldwell', 'James Caldwell', '3590  White River Way', 'Male', 'BIT', '1997-04-01', 7036580002, 'password', 'robb@gmail.com'),
+(146891657, 'Christine', 'Meadow', 'Johnny M Meadow', '662  Frederick Street', 'Female', 'BIT', '1995-08-25', 70258666660, 'password', 'christine@gmail.com'),
+(146891658, 'Francisca', 'Ashley', 'George Ashley', '3828  Pine Garden Lane', 'Female', 'BIT', '1994-11-03', 7014524580, 'password', 'ashley@gmail.com'),
+(146891659, 'Jason', 'Robinson', 'Mark L Robinson', '4916  Melm Street', 'Male', 'BIT', '1997-11-13', 7023699630, 'password', 'json@gmail.com'),
+(146891662, 'Liam', 'Moore', 'Stephen Moore', '2587 Ralph Street', 'Male', 'BIT', '1996-02-12', 7410002587, 'password', 'liamoore@gmail.com'),
+(146891663, 'Rachel', 'Rufus', 'Jordan Rufus', '3898 Mulberry Lane', 'Female', 'BIT', '1998-11-01', 7014445836, 'password', 'rachel@gmail.com');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `video`
+--
+
+CREATE TABLE `video` (
+  `V_id` int(10) NOT NULL,
+  `V_Title` varchar(50) NOT NULL,
+  `V_Url` longtext NOT NULL,
+  `V_Remarks` longtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='This table is used to store videos info.';
+
+--
+-- Dumping data for table `video`
+--
+
+INSERT INTO `video` (`V_id`, `V_Title`, `V_Url`, `V_Remarks`) VALUES
+(1, 'PHP Sessions', '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/3CS-eQdcMLU\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 'How to Start a Session in PHP | PHP Tutorial | Learn PHP Programming | PHP for Beginners. Today we will learn about sessions in debt so we know how to create and destroy these sessions.'),
+(3, 'Multi User Role Based Login PHP', '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/-8q3GLkr9Ts\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 'This is a complete video demonstrating multi user role based login form using Bootstrap 5, PHP, MySQL'),
+(4, 'CSS Grid ', '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/HgwCeNVPlo0?rel=0&amp;showinfo=0\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe>', 'How to create website layouts using CSS grid'),
+(5, 'JQuery', '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/BWXggB-T1jQ\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe>', 'JQuery Tutorial:\r\nQuery is a cross-platform JavaScript library designed to simplify the client-side scripting of HTML. It is free, open-source software using the permissive MIT License.'),
+(6, 'JSON - Full Crash Course', '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/GpOO5iKzOmY\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 'You will learn:- what JSON is, why JSON is important, what JSON is used for, the syntax of JSON, and see multiple examples of JSON. '),
+(8, 'MongoDB Crash Course', '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/-56x56UppqQ\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 'This video will go over MongoDB, which is a popular NoSQL database.'),
+(9, 'demo changes', '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/3CS-eQdcMLU\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 'demo video');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`Aid`);
+
+--
+-- Indexes for table `examans`
+--
+ALTER TABLE `examans`
+  ADD PRIMARY KEY (`EAnsID`);
+
+--
+-- Indexes for table `examdetails`
+--
+ALTER TABLE `examdetails`
+  ADD PRIMARY KEY (`ExamID`),
+  ADD UNIQUE KEY `ExamName` (`ExamName`);
+
+--
+-- Indexes for table `facutlytable`
+--
+ALTER TABLE `facutlytable`
+  ADD PRIMARY KEY (`FID`);
+
+--
+-- Indexes for table `guest`
+--
+ALTER TABLE `guest`
+  ADD PRIMARY KEY (`Gname`);
+
+--
+-- Indexes for table `query`
+--
+ALTER TABLE `query`
+  ADD PRIMARY KEY (`Qid`);
+
+--
+-- Indexes for table `result`
+--
+ALTER TABLE `result`
+  ADD PRIMARY KEY (`RsID`);
+
+--
+-- Indexes for table `studenttable`
+--
+ALTER TABLE `studenttable`
+  ADD PRIMARY KEY (`Eno`);
+
+--
+-- Indexes for table `video`
+--
+ALTER TABLE `video`
+  ADD PRIMARY KEY (`V_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `examans`
+--
+ALTER TABLE `examans`
+  MODIFY `EAnsID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `examdetails`
+--
+ALTER TABLE `examdetails`
+  MODIFY `ExamID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT for table `facutlytable`
+--
+ALTER TABLE `facutlytable`
+  MODIFY `FID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
+
+--
+-- AUTO_INCREMENT for table `query`
+--
+ALTER TABLE `query`
+  MODIFY `Qid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
+-- AUTO_INCREMENT for table `result`
+--
+ALTER TABLE `result`
+  MODIFY `RsID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2388;
+
+--
+-- AUTO_INCREMENT for table `studenttable`
+--
+ALTER TABLE `studenttable`
+  MODIFY `Eno` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=146891664;
+
+--
+-- AUTO_INCREMENT for table `video`
+--
+ALTER TABLE `video`
+  MODIFY `V_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+--
+-- Database: `phpmyadmin`
+--
+CREATE DATABASE IF NOT EXISTS `phpmyadmin` DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+USE `phpmyadmin`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__bookmark`
+--
+
+CREATE TABLE `pma__bookmark` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `dbase` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `user` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `label` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '',
+  `query` text COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Bookmarks';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__central_columns`
+--
+
+CREATE TABLE `pma__central_columns` (
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `col_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `col_type` varchar(64) COLLATE utf8_bin NOT NULL,
+  `col_length` text COLLATE utf8_bin DEFAULT NULL,
+  `col_collation` varchar(64) COLLATE utf8_bin NOT NULL,
+  `col_isNull` tinyint(1) NOT NULL,
+  `col_extra` varchar(255) COLLATE utf8_bin DEFAULT '',
+  `col_default` text COLLATE utf8_bin DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Central list of columns';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__column_info`
+--
+
+CREATE TABLE `pma__column_info` (
+  `id` int(5) UNSIGNED NOT NULL,
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `table_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `column_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `comment` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '',
+  `mimetype` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '',
+  `transformation` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `transformation_options` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `input_transformation` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `input_transformation_options` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Column information for phpMyAdmin';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__designer_settings`
+--
+
+CREATE TABLE `pma__designer_settings` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `settings_data` text COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Settings related to Designer';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__export_templates`
+--
+
+CREATE TABLE `pma__export_templates` (
+  `id` int(5) UNSIGNED NOT NULL,
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `export_type` varchar(10) COLLATE utf8_bin NOT NULL,
+  `template_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `template_data` text COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Saved export templates';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__favorite`
+--
+
+CREATE TABLE `pma__favorite` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `tables` text COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Favorite tables';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__history`
+--
+
+CREATE TABLE `pma__history` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `username` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `db` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `table` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `timevalue` timestamp NOT NULL DEFAULT current_timestamp(),
+  `sqlquery` text COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='SQL history for phpMyAdmin';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__navigationhiding`
+--
+
+CREATE TABLE `pma__navigationhiding` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `item_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `item_type` varchar(64) COLLATE utf8_bin NOT NULL,
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `table_name` varchar(64) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Hidden items of navigation tree';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__pdf_pages`
+--
+
+CREATE TABLE `pma__pdf_pages` (
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `page_nr` int(10) UNSIGNED NOT NULL,
+  `page_descr` varchar(50) CHARACTER SET utf8 NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='PDF relation pages for phpMyAdmin';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__recent`
+--
+
+CREATE TABLE `pma__recent` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `tables` text COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Recently accessed tables';
+
+--
+-- Dumping data for table `pma__recent`
+--
+
+INSERT INTO `pma__recent` (`username`, `tables`) VALUES
+('root', '[{\"db\":\"college\",\"table\":\"teacher_attendance\"},{\"db\":\"college\",\"table\":\"teacher_salary_report\"},{\"db\":\"college\",\"table\":\"teacher_salary_allowances\"},{\"db\":\"college\",\"table\":\"teacher_info\"},{\"db\":\"college\",\"table\":\"student_courses\"},{\"db\":\"college\",\"table\":\"courses\"},{\"db\":\"college\",\"table\":\"course_subjects\"},{\"db\":\"college\",\"table\":\"student_info\"},{\"db\":\"college\",\"table\":\"time_table\"},{\"db\":\"college\",\"table\":\"teacher_courses\"}]');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__relation`
+--
+
+CREATE TABLE `pma__relation` (
+  `master_db` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `master_table` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `master_field` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `foreign_db` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `foreign_table` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `foreign_field` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Relation table';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__savedsearches`
+--
+
+CREATE TABLE `pma__savedsearches` (
+  `id` int(5) UNSIGNED NOT NULL,
+  `username` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `search_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `search_data` text COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Saved searches';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__table_coords`
+--
+
+CREATE TABLE `pma__table_coords` (
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `table_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `pdf_page_number` int(11) NOT NULL DEFAULT 0,
+  `x` float UNSIGNED NOT NULL DEFAULT 0,
+  `y` float UNSIGNED NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Table coordinates for phpMyAdmin PDF output';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__table_info`
+--
+
+CREATE TABLE `pma__table_info` (
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `table_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `display_field` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Table information for phpMyAdmin';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__table_uiprefs`
+--
+
+CREATE TABLE `pma__table_uiprefs` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `table_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `prefs` text COLLATE utf8_bin NOT NULL,
+  `last_update` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Tables'' UI preferences';
+
+--
+-- Dumping data for table `pma__table_uiprefs`
+--
+
+INSERT INTO `pma__table_uiprefs` (`username`, `db_name`, `table_name`, `prefs`, `last_update`) VALUES
+('root', 'college', 'courses', '{\"sorted_col\":\"`courses`.`course_code` ASC\"}', '2022-05-01 05:39:41'),
+('root', 'college', 'student_info', '{\"sorted_col\":\"`student_info`.`roll_no` ASC\"}', '2022-05-01 04:15:55');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__tracking`
+--
+
+CREATE TABLE `pma__tracking` (
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `table_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `version` int(10) UNSIGNED NOT NULL,
+  `date_created` datetime NOT NULL,
+  `date_updated` datetime NOT NULL,
+  `schema_snapshot` text COLLATE utf8_bin NOT NULL,
+  `schema_sql` text COLLATE utf8_bin DEFAULT NULL,
+  `data_sql` longtext COLLATE utf8_bin DEFAULT NULL,
+  `tracking` set('UPDATE','REPLACE','INSERT','DELETE','TRUNCATE','CREATE DATABASE','ALTER DATABASE','DROP DATABASE','CREATE TABLE','ALTER TABLE','RENAME TABLE','DROP TABLE','CREATE INDEX','DROP INDEX','CREATE VIEW','ALTER VIEW','DROP VIEW') COLLATE utf8_bin DEFAULT NULL,
+  `tracking_active` int(1) UNSIGNED NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Database changes tracking for phpMyAdmin';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__userconfig`
+--
+
+CREATE TABLE `pma__userconfig` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `timevalue` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `config_data` text COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='User preferences storage for phpMyAdmin';
+
+--
+-- Dumping data for table `pma__userconfig`
+--
+
+INSERT INTO `pma__userconfig` (`username`, `timevalue`, `config_data`) VALUES
+('root', '2022-05-05 14:39:05', '{\"Console\\/Mode\":\"collapse\"}');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__usergroups`
+--
+
+CREATE TABLE `pma__usergroups` (
+  `usergroup` varchar(64) COLLATE utf8_bin NOT NULL,
+  `tab` varchar(64) COLLATE utf8_bin NOT NULL,
+  `allowed` enum('Y','N') COLLATE utf8_bin NOT NULL DEFAULT 'N'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='User groups with configured menu items';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__users`
+--
+
+CREATE TABLE `pma__users` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `usergroup` varchar(64) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Users and their assignments to user groups';
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `pma__bookmark`
+--
+ALTER TABLE `pma__bookmark`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `pma__central_columns`
+--
+ALTER TABLE `pma__central_columns`
+  ADD PRIMARY KEY (`db_name`,`col_name`);
+
+--
+-- Indexes for table `pma__column_info`
+--
+ALTER TABLE `pma__column_info`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `db_name` (`db_name`,`table_name`,`column_name`);
+
+--
+-- Indexes for table `pma__designer_settings`
+--
+ALTER TABLE `pma__designer_settings`
+  ADD PRIMARY KEY (`username`);
+
+--
+-- Indexes for table `pma__export_templates`
+--
+ALTER TABLE `pma__export_templates`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `u_user_type_template` (`username`,`export_type`,`template_name`);
+
+--
+-- Indexes for table `pma__favorite`
+--
+ALTER TABLE `pma__favorite`
+  ADD PRIMARY KEY (`username`);
+
+--
+-- Indexes for table `pma__history`
+--
+ALTER TABLE `pma__history`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `username` (`username`,`db`,`table`,`timevalue`);
+
+--
+-- Indexes for table `pma__navigationhiding`
+--
+ALTER TABLE `pma__navigationhiding`
+  ADD PRIMARY KEY (`username`,`item_name`,`item_type`,`db_name`,`table_name`);
+
+--
+-- Indexes for table `pma__pdf_pages`
+--
+ALTER TABLE `pma__pdf_pages`
+  ADD PRIMARY KEY (`page_nr`),
+  ADD KEY `db_name` (`db_name`);
+
+--
+-- Indexes for table `pma__recent`
+--
+ALTER TABLE `pma__recent`
+  ADD PRIMARY KEY (`username`);
+
+--
+-- Indexes for table `pma__relation`
+--
+ALTER TABLE `pma__relation`
+  ADD PRIMARY KEY (`master_db`,`master_table`,`master_field`),
+  ADD KEY `foreign_field` (`foreign_db`,`foreign_table`);
+
+--
+-- Indexes for table `pma__savedsearches`
+--
+ALTER TABLE `pma__savedsearches`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `u_savedsearches_username_dbname` (`username`,`db_name`,`search_name`);
+
+--
+-- Indexes for table `pma__table_coords`
+--
+ALTER TABLE `pma__table_coords`
+  ADD PRIMARY KEY (`db_name`,`table_name`,`pdf_page_number`);
+
+--
+-- Indexes for table `pma__table_info`
+--
+ALTER TABLE `pma__table_info`
+  ADD PRIMARY KEY (`db_name`,`table_name`);
+
+--
+-- Indexes for table `pma__table_uiprefs`
+--
+ALTER TABLE `pma__table_uiprefs`
+  ADD PRIMARY KEY (`username`,`db_name`,`table_name`);
+
+--
+-- Indexes for table `pma__tracking`
+--
+ALTER TABLE `pma__tracking`
+  ADD PRIMARY KEY (`db_name`,`table_name`,`version`);
+
+--
+-- Indexes for table `pma__userconfig`
+--
+ALTER TABLE `pma__userconfig`
+  ADD PRIMARY KEY (`username`);
+
+--
+-- Indexes for table `pma__usergroups`
+--
+ALTER TABLE `pma__usergroups`
+  ADD PRIMARY KEY (`usergroup`,`tab`,`allowed`);
+
+--
+-- Indexes for table `pma__users`
+--
+ALTER TABLE `pma__users`
+  ADD PRIMARY KEY (`username`,`usergroup`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `pma__bookmark`
+--
+ALTER TABLE `pma__bookmark`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `pma__column_info`
+--
+ALTER TABLE `pma__column_info`
+  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `pma__export_templates`
+--
+ALTER TABLE `pma__export_templates`
+  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `pma__history`
+--
+ALTER TABLE `pma__history`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `pma__pdf_pages`
+--
+ALTER TABLE `pma__pdf_pages`
+  MODIFY `page_nr` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `pma__savedsearches`
+--
+ALTER TABLE `pma__savedsearches`
+  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- Database: `test`
+--
+CREATE DATABASE IF NOT EXISTS `test` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `test`;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
