@@ -29,9 +29,6 @@
 				<a class="nav-link" href="academics.php">ACADEMICS<span class="sr-only">(current)</span></a>
 			</li>
 			<li class="nav-item active">
-				<a class="nav-link" href="admission.php">ADMISSION<span class="sr-only">(current)</span></a>
-			</li>
-			<li class="nav-item active">
 				<a class="nav-link" href="login/login.php"><i class="fa fa-sign-in text-white fa-lg" aria-hidden="true"></i><span class="sr-only">(current)</span></a>
 			</li>
 		</ul>

@@ -62,7 +62,7 @@
 										</tr>
 										<?php  
 											$teacher_id=$_SESSION['teacher_id'];
-											$query="select salary_id,basic_salary,medical_allowance,hr_allowance,scale,Date(paid_date) as paid_date,total_amount from teacher_salary_allowances inner join teacher_salary_report on teacher_salary_allowances.teacher_id=teacher_salary_report.teacher_id where teacher_salary_allowances.teacher_id='$teacher_id'";
+											$query="select salary_id,basic_salary,medical_allowance,hr_allowance,scale,paid_date,total_amount from teacher_salary_allowances inner join teacher_salary_report on teacher_salary_allowances.teacher_id=teacher_salary_report.teacher_id where teacher_salary_allowances.teacher_id='$teacher_id'";
 											$run=mysqli_query($con,$query);
 											while ($row=mysqli_fetch_array($run)) { ?>
 												<tr>
@@ -123,25 +123,17 @@
 								<th>Working Days</th>
 								<th>Presents</th>
 								<th>Absents</th>
-								<th>L.A</th>
-								<th>C.L</th>
-								<th>M.L</th>
-								<th>S.L</th>
 							</tr>
 							
 							<?php
-								$query="select month(attendance_date) as attendance_date,sum(attendance) as present from teacher_attendance  where teacher_id='$teacher_id' group by month(attendance_date) ";
+								$query="select month(attendance_date) as attendance_date,sum(attendance) as present,count(teacher_id) as working_date from teacher_attendance  where teacher_id='$teacher_id' group by month(attendance_date)";
 								$run=mysqli_query($con,$query);
 								while ($row=mysqli_fetch_array($run)) {?>
 									<tr>
 										<td><?php echo $row['attendance_date'] ?></td>						
+										<td><?php echo $row['working_date'] ?></td>
 										<td><?php echo $row['present'] ?></td>
-										<td><?php echo $row['present'] ?></td>
-										<td><?php echo $row['present']-$row['present'] ?></td>
-										<td>00</td>
-										<td>15</td>
-										<td>15</td>
-										<td>15</td>
+										<td><?php echo $row['working_date']-$row['present'] ?></td>
 									</tr>
 								<?php }
 							?>

@@ -195,7 +195,7 @@
 											<th>Total Amount</th>
 										</tr>
 										<?php  
-											$query="select tsr.teacher_id,ti.first_name,middle_name,last_name,salary_id,basic_salary,medical_allowance,hr_allowance,scale,Date(paid_date) as paid_date,total_amount from teacher_salary_allowances tsa inner join teacher_salary_report tsr on tsa.teacher_id=tsr.teacher_id inner join teacher_info ti on ti.teacher_id=tsr.teacher_id";
+											$query="select tsr.teacher_id,ti.first_name,middle_name,last_name,salary_id,basic_salary,medical_allowance,hr_allowance,scale,paid_date,total_amount from teacher_salary_allowances tsa inner join teacher_salary_report tsr on tsa.teacher_id=tsr.teacher_id inner join teacher_info ti on ti.teacher_id=tsr.teacher_id";
 											$run=mysqli_query($con,$query);
 											while ($row=mysqli_fetch_array($run)) { ?>
 												<tr>

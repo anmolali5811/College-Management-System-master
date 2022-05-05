@@ -34,7 +34,8 @@
 									<th>Subject Name</th>
 									<th>Room No</th>
 									<th>Semester</th>
-									<th>Time</th>
+									<th>From</th>
+									<th>To</th>
 									<th>Total Classes</th>
 								</tr>
 								<?php
@@ -45,7 +46,7 @@
 								while($row=mysqli_fetch_array($run1)) {
 									$teacher_id=$row["teacher_id"];
 								}
-								$query="select tc.teacher_id,tc.course_code,tc.subject_code,tc.semester,tc.total_classes,tt.room_no,tt.timing_to from teacher_courses tc inner join time_table tt on tc.subject_code=tt.subject_code where teacher_id='$teacher_id'";
+								$query="select tc.teacher_id,tc.course_code,tc.subject_code,tc.semester,tc.total_classes,tt.room_no,tt.timing_to,tt.timing_from from teacher_courses tc inner join time_table tt on tc.subject_code=tt.subject_code where teacher_id='$teacher_id'";
 								$run=mysqli_query($con,$query);
 								while($row=mysqli_fetch_array($run)) {
 									echo "<tr>";
@@ -54,6 +55,7 @@
 									echo "<td>".$row["subject_code"]."</td>";
 									echo "<td>".$row["room_no"]."</td>";
 									echo "<td>".$row["semester"]."</td>";
+									echo "<td>".$row["timing_from"]."</td>";
 									echo "<td>".$row["timing_to"]."</td>";
 									echo "<td>".$row["total_classes"]."</td>";
 									echo "</tr>";

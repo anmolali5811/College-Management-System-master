@@ -60,8 +60,6 @@
 			</div>
 			<div class="row pt-3">
 				<div class="col-md-4"><h5>Phone No:</h5> <?php echo $row['mobile_no']  ?></div>
-				<!-- <div class="col-md-4"><h5>State:</h5> <?php echo $row['state']  ?></div> -->
-				<!-- <div class="col-md-4"><h5>Semester:</h5> <?php echo $row['semester']  ?></div> -->
 			</div>
 			<div class="row pt-3">
 				<div class="col-md-4"><h5>Gender:</h5> <?php echo $row['gender']  ?></div>
@@ -71,6 +69,7 @@
 			<div class="row pt-3">
 				<div class="col-md-4"><h5>Date of Birth:</h5> <?php echo $row['dob']  ?></div>
 				<div class="col-md-4"><h5>Admission Date:</h5> <?php echo $row['admission_date']  ?></div>
+				<div class="col-md-4"><h5>Semester:</h5> <?php echo $row['semester']  ?></div>
 			</div>
 			<div class="row pt-3">
 				<div class="col-md-4"><h5>Permanent Adress:</h5> <?php echo $row['permanent_address']  ?></div>

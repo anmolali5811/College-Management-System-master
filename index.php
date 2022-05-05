@@ -16,6 +16,7 @@
 <link href="//fonts.googleapis.com/css?family=Exo+2:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=cyrillic,latin-ext" rel="stylesheet">
 <link href="//fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;subset=latin-ext" rel="stylesheet">
 <!-- //online-fonts -->
+
 </head>
 <body>
 <!-- banner -->
@@ -48,6 +49,7 @@
 						<li><a href="#services" class="effect-3 scroll">Services</a></li>
 						<li><a href="#team" class="effect-3 scroll">Team</a></li>
 						<li><a href="#gallery" class="effect-3 scroll">Gallery</a></li>
+						<li><a href="./academics.php" class="effect-3">Academics</a></li>
 					</ul>
 				</nav>
 
@@ -63,41 +65,14 @@
 			 <img src="images/iiit.jpg" alt="" class="img-responsive" /> </div>
 		</div>
 	</div>
-	<div class="col-md-6 w3l_about_bottom_right one">
-		<div class="abt-w3l">
-			<div class="header-w3l">
-				<h2>Admission Form</h2>
-				<h4>Fill the  Details</h4>
-				<form action="#" method="post" class="mod2">
-					<div class="col-md-6 col-xs-6 w3l-left-mk">
-						<ul>
-							<li class="text">Name of Applicant :  </li>
-							<li class="agileits-main"><i class="fa fa-user-o" aria-hidden="true"></i><input name="name" type="text" required=""></li>
-							<li class="text">Date of Birth :  </li>
-							<li class="agileits-main"><i class="fa fa-calendar" aria-hidden="true"></i><input class="date" id="datepicker" name="Text" type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required="" /></li>
-							<li class="text">Father Name  :  </li>
-							<li class="agileits-main"><i class="fa fa-user-o" aria-hidden="true"></i><input name="name" type="text" required=""></li>
-							<li class="text">Gender  :  </li>
-							<li class="agileits-main"><i class="fa fa-user-o" aria-hidden="true"></i><input name="gender" type="text" required=""></li>
-						</ul>
-					</div>
-					<div class="col-md-6 col-xs-6 w3l-right-mk">
-						<ul>
-							<li class="text">mobile no  :  </li>
-							<li class="agileits-main"><i class="fa fa-phone" aria-hidden="true"></i><input name="mobile" type="text" required=""></li>
-							<li class="text">Address  :  </li>
-							<li class="agileits-main"><i class="fa fa-home" aria-hidden="true"></i><input name="address" type="text" required=""></li>
-							<li class="text">District  :  </li>
-							<li class="agileits-main"><i class="fa fa-map-marker" aria-hidden="true"></i><input name="address" type="text" required=""></li>
-							<li class="text">State  :  </li>
-							<li class="agileits-main"><i class="fa fa-map-marker" aria-hidden="true"></i><input name="address" type="text" required=""></li>
-						</ul>
-					</div>
-					<div class="clearfix"></div>
-					<div class="agile-submit">
-						<input type="submit" value="submit">
-					</div>
-				</form>
+	<div class="col-md-6 w3l_about_bottom_right one ">
+		<div class="abt-w3l" >
+			<div class="header-w3l " >
+				<br>
+				<h2>Welcome to IIIT, Sonepat</h2>
+				<br><br>
+				<p>Admission to Undergraduate Programs for the candidates from India at IIIT Sonepat is based on the ranks in the Joint Entrance Examination, JEE (Main). Admission to IIIT Sonepat for JEE Main qualified candidates is made through a single platform through online by the Joint Seat Allocation Authority (JoSAA). The Joint Seat Allocation Authority (JoSAA) 2018 has been set up by the Ministry of Human Resources Development (MHRD) to manage and regulate the joint seat allocation for admissions to 100 institutes for the academic year 2018-19. This includes 23 IITs, 31 NITs, 23 IIITs and 23 Other-Government Funded Technical Institutes (Other-GFTIs). Admission to all the academic programs offered by these Institutes will be made through a single platform. For further details on admission process, please visit website www.josaa.nic.in.</p>
+				<br><br><br><br>
 			</div>
 		</div>
 	</div>
@@ -133,8 +108,9 @@
 			<div class="clearfix"> </div>
 		</div>
 		<div class="col-md-5 wthree-about-grids">
-			<h4>Welcome to IIIT, Sonepat</h4>
+			<p>Indian Institute of Information Technology, Sonepat (IIIT, Sonepat) is one of the Indian Institutes of Information Technology located at Sonepat, Haryana. The academic session of IIIT Sonepat started from its mentor Institute National Institute of Technology, Kurukshetra from year 2014. IIIT Sonepat is a joint venture of the Ministry of Human Resource Development, Government of India, the Govt. of Haryana, with Industries in Public-Private Partnership model and has been declared as the Institute of national importance.</p>
 		</div>
+
 		<div class="clearfix"> </div>
 	</div>
 </div>
@@ -385,7 +361,11 @@
 		</div>
 	</div>
 </div>
+
 <!-- //team -->
+<div class="row bg-dark mt-2  m-0 " style="list-style: none;">
+        <?php include('common/footer.php'); ?>
+    </div>
 <!-- js-scripts -->			
 <!-- js-files -->
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
@@ -442,8 +422,6 @@ jQuery(function($) {
 	 });
 	</script>
 <!-- //Calendar -->	
-<div class="row bg-dark mt-2">
-        <?php include('common/footer.php'); ?>
-    </div>
+
 </body>
 </html>

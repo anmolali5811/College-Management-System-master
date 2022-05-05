@@ -305,14 +305,14 @@
 															</div>
 															<div class="col-md-6">
 																<div class="form-group">
-																	<label for="exampleInputPassword1">Please Select Subject:*</label>
+																	<label for="exampleInputPassword1">Please Select Subject Code:*</label>
 																	<select class="browser-default custom-select" name="subject_code" required="">
 																		<option >Select Subject</option>
 																		<?php
-																			$query="select subject_name from course_subjects";
+																			$query="select subject_code,subject_name from course_subjects";
 																			$run=mysqli_query($con,$query);
 																			while($row=mysqli_fetch_array($run)) {
-																			echo	"<option value=".$row['subject_name'].">".$row['subject_name']."</option>";
+																			echo	"<option value=".$row['subject_code'].">".$row['subject_name']."</option>";
 																			}
 																		?>
 																	</select>

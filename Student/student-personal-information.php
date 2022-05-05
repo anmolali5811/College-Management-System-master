@@ -24,27 +24,19 @@
 
 		$father_name=$_POST['father_name'];
 
-		$cnic=$_POST['cnic'];
-
 		$mobile_no=$_POST['mobile_no'];
 
 		$gender=$_POST['gender'];
 
 		$semester=$_POST['semester'];
 
-		$total_marks=$_POST['total_marks'];
-
-		$obtain_marks=$_POST['obtain_marks'];
-
 		$current_address=$_POST['current_address'];
 
 		$permanent_address=$_POST['permanent_address'];
 
-		$state=$_POST['state'];
-
 		$place_of_birth=$_POST['place_of_birth'];
 
-		$query="update student_info set first_name='$first_name',middle_name='$middle_name',last_name='$last_name',father_name='$father_name',cnic='$cnic',mobile_no='$mobile_no',gender='$gender',semester='$semester',total_marks='$total_marks',obtain_marks='$obtain_marks',current_address='$current_address',permanent_address='$permanent_address',state='$state',place_of_birth='$place_of_birth' where roll_no='$roll_no'";
+		$query="update student_info set first_name='$first_name',middle_name='$middle_name',last_name='$last_name',father_name='$father_name',mobile_no='$mobile_no',gender='$gender',semester='$semester',current_address='$current_address',permanent_address='$permanent_address',place_of_birth='$place_of_birth' where roll_no='$roll_no'";
 		$run=mysqli_query($con,$query);
 		if ($run) {  ?>
  			<script type="text/javascript">
@@ -114,12 +106,6 @@
 							<div class="row">
 								<div class="col-md-6 pr-5">
 									<div class="form-group">
-										<label for="exampleInputEmail1">CNIC:*</label>
-										<input type="text" class="form-control" name="cnic" value=<?php echo $row['cnic'] ?>>
-									</div>
-								</div>
-								<div class="col-md-6 pr-5">
-									<div class="form-group">
 										<label for="exampleInputPassword1">Mobile:*</label>
 										<input type="number" class="form-control" name="mobile_no"  value=<?php echo $row['mobile_no'] ?>>
 									</div>
@@ -142,20 +128,6 @@
 							<div class="row">
 								<div class="col-md-6 pr-5">
 									<div class="form-group">
-										<label for="exampleInputEmail1">Total Marks (InterMediate/HSSC/Equiv Marks):*</label>
-										<input type="number" name="total_marks" class="form-control" placeholder="Marks" value=<?php echo $row['total_marks'] ?>>
-									</div>
-								</div>
-								<div class="col-md-6 pr-5">
-									<div class="form-group">
-										<label for="exampleInputPassword1">Obtain Marks (InterMediate/HSSC/Equiv Marks):*</label>
-										<input type="number" name="obtain_marks" class="form-control"  placeholder="Marks" value=<?php echo $row['obtain_marks'] ?>>
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-6 pr-5">
-									<div class="form-group">
 										<label for="exampleInputEmail1">Current Address:*</label>
 										<input type="text" name="current_address" class="form-control" value=<?php echo $row['current_address'] ?>>
 									</div>
@@ -168,12 +140,6 @@
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-md-6 pr-5">
-									<div class="form-group">
-										<label for="exampleInputEmail1">State Or Province: *</label>
-										<input type="text" name="state" class="form-control" placeholder="State Province" value=<?php echo $row['state'] ?>>
-									</div>
-								</div>
 								<div class="col-md-6 pr-5">
 									<div class="form-group">
 										<label for="exampleInputPassword1">Place of Birth:*</label>

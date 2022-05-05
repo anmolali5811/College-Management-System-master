@@ -4,7 +4,7 @@
 	<title>Academics</title>
 </head>
 <body>
-	<?php include('common/header.php') ?>
+	<?php include('./common/header.php') ?>
 	
 	<div class="container-fluid">
 		<div class="row mb-5">
