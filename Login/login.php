@@ -2,7 +2,7 @@
 <?php 
 session_start();
     require_once "../connection/connection.php"; 
-    $message="Email Or Password Does Not Match";
+    $message="";
     if(isset($_POST["btnlogin"]))
     {
         $username=$_POST["email"];
@@ -27,11 +27,13 @@ session_start();
                     $_SESSION['LoginStudent']=$row['user_id'];
                     header('Location: ../student/student-index.php');
                 }
+                $message="";
             }
         }
         else
         { 
             header("Location: login.php");
+            $message="Email Or Password Does Not Match";
         }
     }
 ?>
@@ -57,8 +59,8 @@ session_start();
                     <div class="form-group">
                         <label><h6>Enter Password:</h6></label>
                         <input type="Password" name="password" placeholder="Enter Password" class="form-control border-bottom" required>
-                        <?php echo $message; ?>
                     </div>
+                    <div class="text-white" ><?php echo $message; ?></div>
                     <div class="form-group text-center mb-3 mt-4">
                         <input type="submit" name="btnlogin" value="LOGIN" class="btn btn-white pl-5 pr-5 ">
                     </div>

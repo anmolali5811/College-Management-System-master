@@ -61,7 +61,7 @@
 
 // *****************************************Images upload code starts here********************************************************** 
 		$profile_image = $_FILES['profile_image']['name'];$tmp_name=$_FILES['profile_image']['tmp_name'];$path = "images/".$profile_image;move_uploaded_file($tmp_name, $path);
-
+ 
 
 
 // *****************************************Images upload code end here********************************************************** 

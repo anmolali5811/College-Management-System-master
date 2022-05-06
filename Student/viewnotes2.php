@@ -55,11 +55,11 @@
 						<br>
 						
 						<td>
-							<?PHP echo $row['N_Url'];?>
+							<a target="__blank" href="<?PHP echo $row['N_Url'];?>">Go to Notes </a>
 						</td>
 						<br>
 						<td>
-							<p> Notes Description <?PHP echo $row['N_Remarks'];?> </p>
+							<br><p> Notes Description <br><?PHP echo $row['N_Remarks'];?> </p>
 						</td>
 						<br>
 						<td><a href="viewnotes.php"> <input type=	"button" Value="Back"  class="btn btn-info" style="border-radius:0%"  data-toggle="modal" data-target="#myModal"></a>

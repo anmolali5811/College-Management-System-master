@@ -7,10 +7,12 @@
 	}
 		require_once "../connection/connection.php";
 	?>
-<!---------------- Session Ends form here ------------------------>>
+<!---------------- Session Ends form here ------------------------>
 
 
 <?php
+
+
 
     $roll_no=$_SESSION['LoginStudent'];
 

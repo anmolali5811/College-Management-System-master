@@ -90,7 +90,7 @@
 							</td>
 						</tr>
 						
-						<td><button type="submit" name="submit" class="btn btn-success" style="border-radius:0%">Add Video</button>
+						<td><button type="submit" name="submit" class="btn btn-success" style="border-radius:0%">Add Notes</button>
 						</td>
 						
 					</table>
